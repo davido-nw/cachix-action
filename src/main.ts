@@ -19,7 +19,7 @@ const installCommand =
 async function setup() {
   try {
     core.startGroup('Cachix: installing')
-    await exec.exec('bash', ['-c', installCommand]);
+    await exec.exec('sh', ['-c', installCommand]);
     core.endGroup()
 
     // for managed signing key and private caches
@@ -71,7 +71,7 @@ async function upload() {
 if (!IsPost) {
   // Publish a variable so that when the POST action runs, it can determine it should run the cleanup logic.
   // This is necessary since we don't have a separate entry point.
-  coreCommand.issueCommand('save-state', {name: 'isPost'}, 'true')
+  coreCommand.issueCommand('save-state', { name: 'isPost' }, 'true')
   setup()
 } else {
   // Post
