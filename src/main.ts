@@ -19,6 +19,7 @@ const installCommand =
 async function setup() {
   try {
     core.startGroup('Cachix: installing')
+    console.log(installCommand);
     await exec.exec('sh', ['-c', installCommand]);
     core.endGroup()
 
